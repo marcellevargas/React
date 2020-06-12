@@ -1,0 +1,3 @@
+- Um projeto React contém uma pasta node_modules para armazenar os módulos
+  do node nescessários para a aplicação funcionar
+- A pasta public que contém o ícone, um manifest.json e um arquivo index.html
