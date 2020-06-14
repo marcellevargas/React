@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import Tabela from './Tabela';
+import Form from './Formulario';
 
 // function App() {
 //   const  autores =  [
@@ -77,9 +78,14 @@ class App extends Component {
   
   render() {
     return (
-      <div className="App">
+      // <div className="App">
+      //   <Tabela autores = { this.state.autores } removeAutor = { this.removeAutor } />
+      //   <Form />
+      // </div>
+      <React.Fragment>
         <Tabela autores = { this.state.autores } removeAutor = { this.removeAutor } />
-      </div>
+        <Form escutadorDeSubmit={this.escutadorDeSubmit} />
+      </React.Fragment>
     );
   }
 
@@ -92,6 +98,18 @@ class App extends Component {
           return posAtual !== index;
         })
       });
+  }
+
+  escutadorDeInput = event => {
+    const { name, value } = event.target;
+
+    this.setState({
+      [name]: value
+    })
+  }
+
+  escutadorDeSubmit = autor => {
+    this.setState({ autores:[...this.state.autores, autor]})
   }
 }
 

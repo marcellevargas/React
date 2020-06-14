@@ -1,0 +1,10 @@
+- Como temos um formulário no qual os dados serão inseridos,
+    iremos alterar o estado de um elemento. No construtor,
+    receberemos as props e passaremos para o component com o
+    super()
+- A palavra "for" não pode ser utilizada no JSX, nesse caso utilizamos a palavra
+    htmlFor
+
+- Tag raíz: <> são tags que armazeam um componente dentro do render() 
+- Um render() só pode ter uma tag raiz, para resolver utilizamos uma tag chamada React.Fragment
+
