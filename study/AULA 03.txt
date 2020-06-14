@@ -1,0 +1,19 @@
+- Tudo que diz respeito ao controle de estado de um componente tem um lugar
+  específico para ser armazenado no Recat, que é o state.
+- É possível utilizar o state dentro de um function component
+- No caso App.js será transformado em um componet
+- Será criado um tsate, que recebera um objeto, esse array se tornará uma 
+  chave de um objeto JS
+- Um componente criado por meio de uma classe precisa obrigatoriamente,
+  da declaração de um método render()
+- State: Serve para guardar valores/estados que podem vir a mudar com a
+  interação do usuário, com o componente, tendo efeito na renderização do mesmo,
+  o state pode ser passado como props
+- Props: Valores para a configuração de um componente, essas props são passadas pelo elemento acima
+  (que utiliza o componente que irá receber)
+  e são imutáveis, utilizado para a comunicação de componentes
+- Sempre que alterarmo/atualizarmos o State, o componente é redesenhado na tela
+  (render)
+- Como não é possível alterar um state diretamente, utilizaremos um método do Recat
+  chamado de setState(). Esse método recebe um JSON que servirá para fazer o merge dos dados
+  que estão no state e aqueles que estão sendo passados
