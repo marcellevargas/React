@@ -84,11 +84,16 @@ class App extends Component {
       //   <Tabela autores = { this.state.autores } removeAutor = { this.removeAutor } />
       //   <Form />
       // </div>
-      <React.Fragment>
+      // <React.Fragment>
+      //    <Header />
+      //   <Tabela autores = { this.state.autores } removeAutor = { this.removeAutor } />
+      //   <Form escutadorDeSubmit={this.escutadorDeSubmit} />
+      // </React.Fragment>
+      <div  className="container mb-10">
          <Header />
         <Tabela autores = { this.state.autores } removeAutor = { this.removeAutor } />
-        <Form escutadorDeSubmit={this.escutadorDeSubmit} />
-      </React.Fragment>
+         <Form />
+      </div>
     );
   }
 
