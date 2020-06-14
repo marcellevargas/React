@@ -1,0 +1,4 @@
+- A ideia do React é criar componentes reutilizáveis, então estamos sempre
+  criando componentes
+- Todo componente obrigatoriamente precisa de um método render() que irá renderizar
+  algo na tela
