@@ -1,0 +1,1 @@
+- Instalar o npm install validator@10.11.0

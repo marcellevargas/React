@@ -1,10 +1,16 @@
 import React, { Component } from 'react';
+import FormValidator from './FormValidator';
 
 
 class Formulario extends Component {
 
     constructor(props) {
         super(props);
+
+        this.validador = new FormValidator({
+            campo: 'nome',
+            metodo: 'isEmpty'
+        });
 
         this.stateInicial = {
             nome: '',
