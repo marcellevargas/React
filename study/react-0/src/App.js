@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
-import './App.css';
+// import './App.css';
 import Tabela from './Tabela';
 import Form from './Formulario';
+import 'materialize-css/dist/css/materialize.min.css';
+import Header from './Header';
 
 // function App() {
 //   const  autores =  [
@@ -83,6 +85,7 @@ class App extends Component {
       //   <Form />
       // </div>
       <React.Fragment>
+         <Header />
         <Tabela autores = { this.state.autores } removeAutor = { this.removeAutor } />
         <Form escutadorDeSubmit={this.escutadorDeSubmit} />
       </React.Fragment>
