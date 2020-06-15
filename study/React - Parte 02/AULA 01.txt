@@ -1,1 +1,2 @@
 - Instalar o npm install validator@10.11.0
+- O validator recebe um objeto do tipo JSON com o id do campo e o tipo de validação

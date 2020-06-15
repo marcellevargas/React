@@ -17,3 +17,6 @@
 - Como não é possível alterar um state diretamente, utilizaremos um método do Recat
   chamado de setState(). Esse método recebe um JSON que servirá para fazer o merge dos dados
   que estão no state e aqueles que estão sendo passados
+- Instalar o create react app npm install create-react-app
+- Criar um projeto npx create-react-app react-alura
+- Rodar npm start

@@ -22,9 +22,13 @@ class Formulario extends Component {
     }
 
     submitFormulario = () => {
-        this.props.escutadorDeSubmit(this.state);
-        this.setState(this.stateInicial);
 
+        if (this.validador.valida(this.state)){
+            //Lógica para inserção na tabela
+        }else{
+            console.log('submit bloqueado');
+        }
+    
     }
 
 
