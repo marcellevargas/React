@@ -1,0 +1,4 @@
+- podemos adicionar uma informação de retorno na validação, que será o valido quando
+  uma o booleano for igual ao definido no JSON. isEmpty() se está vazio e isInt() se é
+  um número inteiro. E em caso de erro será exibida uma mensagem pernosalizada
+- no caso de valor máximo e mínimo iremos adicionar um JSON com [{min: value, max: value}]

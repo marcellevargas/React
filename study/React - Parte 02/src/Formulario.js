@@ -7,10 +7,27 @@ class Formulario extends Component {
     constructor(props) {
         super(props);
 
-        this.validador = new FormValidator({
-            campo: 'nome',
-            metodo: 'isEmpty'
-        });
+        this.validador = new FormValidator([
+            {
+                campo: 'nome',
+                metodo: 'isEmpty',
+                validoQuando: false,
+                mensagem: 'Entre com um nome'
+            },
+            {
+                campo: 'livro',
+                metodo: 'isEmpty',
+                validoQuando: false,
+                mensagem: 'Entre com um livro'
+            },
+            {
+                campo: 'preco',
+                metodo: 'isInt',
+                args: [{ min: 0, max: 99999 }],
+                validoQuando: true,
+                mensagem: 'Entre com um valor numérico'
+            }
+        ]);
 
         this.stateInicial = {
             nome: '',
@@ -23,12 +40,12 @@ class Formulario extends Component {
 
     submitFormulario = () => {
 
-        if (this.validador.valida(this.state)){
+        if (this.validador.valida(this.state)) {
             //Lógica para inserção na tabela
-        }else{
+        } else {
             console.log('submit bloqueado');
         }
-    
+
     }
 
 
