@@ -1,47 +1,48 @@
 import validador from 'validator';
+
 class FormValidator {
+
     constructor(validacoes) {
         this.validacoes = validacoes;
     }
 
     valida(state) {
-        // const campoValor = state[this.validacao.campo.toString()];
-        // const metodoValidacao = validador[this.validacao.metodo];
 
-        // if(metodoValidacao(campoValor, [], state) === true){
-        //     console.log("FORM INVÁLIDO");
-        //     return false;
-        // }else{
-        //     console.log("FORM VÁLIDO");
-        //     return true;
-        // }
         let validacao = this.valido();
 
         this.validacoes.forEach(regra => {
-            const campoValor = state[this.validacao.campo.toString()];
-            const metodoValidacao = validador[this.validacao.metodo];
+            
+        
+            if (!validacao[regra.campo].isInvalid) {
+                const campoValor = state[regra.campo.toString()];
+                const args = regra.args || [];
+                const metodoValidacao = typeof regra.metodo === 'string' ?
+                    validador[regra.metodo] : regra.metodo;
 
-            if(metodoValidacao(campoValor, [], state) === true){
-                console.log("FORM INVÁLIDO");
-                return false;
-            }else{
-                console.log("FORM VÁLIDO");
-                return true;
+                if (metodoValidacao(campoValor, ...args, state) !== regra.validoQuando) {
+                    validacao[regra.campo] = { 
+                        isInvalid: true, 
+                        message: regra.mensagem 
+                    };
+                    validacao.isValid = false;
+
+                }
             }
-        })
+
+
+        });
+        return validacao;
+    }
+    valido() {
+        const validacao = {};
+
+        this.validacoes.map(regra => (
+            validacao[regra.campo] = { isInvalid: false, message: '' }
+        ));
+
+        return { isValid: true, ...validacao };
+
     }
 
-    valid(){
-        const validacao = {
-    
-        }
-    
-        this.validacoes.map(regra => (
-            validacao[regra.campo] = {isInvalid: false, message: ''}
-        ));
-    
-        return {isValid: true, ...validacao};
-    } 
 }
-
 export default FormValidator;

@@ -1,0 +1,11 @@
+- O App.js etá sendo renderizado em index.jsm que pega o root na pasta 
+    "public" e joga o componente dentro dele.
+
+- Instalar o react router dom para criar rotas 
+  npm install react-router-dom@5.0.0
+
+- Depois de instalar o react-router-dom será nescessário importar o 
+    BrowserRouter, o Switch e o Route.
+    * o BrowserRouter é uma tag para indicar que usaremos rotas
+    * Switch que contém as rotas
+    * Route contém um path que é o caminho para a tela

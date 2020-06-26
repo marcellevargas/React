@@ -1,50 +1,62 @@
 import React, { Component } from 'react';
 import FormValidator from './FormValidator';
-
+import PopUp from './PopUp';
 
 class Formulario extends Component {
 
     constructor(props) {
         super(props);
 
-        this.validador = new FormValidator([
+            this.validador = new FormValidator([
             {
-                campo: 'nome',
-                metodo: 'isEmpty',
-                validoQuando: false,
-                mensagem: 'Entre com um nome'
+              campo: 'nome',
+              metodo: 'isEmpty',
+              validoQuando: false,
+              mensagem: 'Entre com um nome'
             },
-            {
-                campo: 'livro',
-                metodo: 'isEmpty',
-                validoQuando: false,
-                mensagem: 'Entre com um livro'
+            { 
+              campo: 'livro',
+              metodo: 'isEmpty',
+              validoQuando: false,
+              mensagem: 'Entre com um livro'
             },
-            {
+            { 
                 campo: 'preco',
                 metodo: 'isInt',
-                args: [{ min: 0, max: 99999 }],
+                args: [{min: 0, max: 99999}],
                 validoQuando: true,
                 mensagem: 'Entre com um valor numérico'
-            }
-        ]);
+              }
+          ]);
 
-        this.stateInicial = {
+          this.stateInicial = {
             nome: '',
             livro: '',
-            preco: ''
+            preco: '',
+            validacao: this.validador.valido()
         }
 
         this.state = this.stateInicial;
     }
 
     submitFormulario = () => {
-
-        if (this.validador.valida(this.state)) {
-            //Lógica para inserção na tabela
-        } else {
-            console.log('submit bloqueado');
+        const validacao = this.validador.valida(this.state);
+        if(validacao.isValid){
+            this.props.escutadorDeSubmit(this.state);
+            this.setState(this.stateInicial);
+        }else {
+            const { nome, livro, preco } = validacao;
+            const campos = [nome, livro, preco];
+            const camposInvalidos = campos.filter(elem => {
+                return elem.isInvalid
+            });
+            camposInvalidos.forEach(campo => {
+                
+                PopUp.exibeMensagem('error', campo.message);
+            });
         }
+        
+        
 
     }
 
