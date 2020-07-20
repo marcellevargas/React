@@ -9,3 +9,6 @@
     * o BrowserRouter é uma tag para indicar que usaremos rotas
     * Switch que contém as rotas
     * Route contém um path que é o caminho para a tela
+
+- High Order Component = é um componente que retorna outro componente por
+  debaixo dos panos
